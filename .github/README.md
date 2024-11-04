@@ -93,7 +93,7 @@ mvn spring-boot:run
 
   Sample Swagger-UI with the OpenApi schema
 
-  ![swagger-ui](docs/images/swagger-ui.png)
+  ![swagger-ui](/docs/images/swagger-ui.png)
 
 ---
 
