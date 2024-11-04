@@ -3,3 +3,8 @@ target/*
 
 # ignore the generated API package
 /src/main/java/com/example/demo/api
+
+# ignore the generated model package
+src/main/java/org/openapitools/model
+
+.openapi-generator

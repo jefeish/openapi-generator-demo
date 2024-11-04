@@ -59,6 +59,7 @@ To set up this project locally, follow these steps:
 ### Why We Don’t Generate Controllers:
 We want to delegate API endpoint requests to custom controllers, allowing for tailored implementations rather than relying on automatically generated code.
 Any changes you make to generated code will be lost when you regenerate the API code. Creating our own controllers prevents the **Openapi-Generator** from overwriting our controller implementations, we use the generated interfaces only as a starting point.
+
 Controllers are where you implement the actual logic for your API endpoints. Developers determine how each API endpoint connects to its controller, this keeps business logic separate from the automatically generated code.
 
 ### Note:
