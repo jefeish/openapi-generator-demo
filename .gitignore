@@ -1,0 +1,5 @@
+# ignore the target/ folder
+target/*
+
+# ignore the generated API package
+/src/main/java/com/example/demo/api
