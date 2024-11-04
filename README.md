@@ -61,9 +61,16 @@ We want to delegate API endpoint requests to custom controllers, allowing for ta
 Any changes you make to generated code will be lost when you regenerate the API code. Creating our own controllers prevents the **Openapi-Generator** from overwriting our controller implementations, we use the generated interfaces only as a starting point.
 Controllers are where you implement the actual logic for your API endpoints. Developers determine how each API endpoint connects to its controller, this keeps business logic separate from the automatically generated code.
 
+### Note:
+- The repository includes an application.properties file at the root level, which you can use to configure various settings for the app, such as the port it runs on.
+- We provide two `Controller` implementations as a sample: 
+  - [`HelloApiController.java`](src/main/java/com/example/demo/controller/HelloApiController.java)
+  - [`UsersApiController.java`](src/main/java/com/example/demo/controller/UsersApiController.java) *
 
-    
- Replace <generator> with the desired generator (e.g., java, python, etc.) and path/to/your/openapi.yaml with the path to your OpenAPI specification file.
+  \* The `UsersApiController.java` does not provide controller services for all endpoints of the API, since its just a demo, therefore calls to these missing endpoints will fail with a Http: 500
+
+
+
 
 ## How To Run The App
 
@@ -72,13 +79,23 @@ Controllers are where you implement the actual logic for your API endpoints. Dev
 ```bash
 mvn clean install  
 ```
+
 - Maven `Run` the SpringBoot app
 
 ```bash
 mvn spring-boot:run 
 ```
 
-    
+## Open The Swagger-UI
+
+- URL: http://localhost:9000/swagger-ui/index.html  (the port is configured in the `application.properties` file)
+
+  Sample Swagger-UI with the OpenApi schema
+
+  ![swagger-ui](docs/images/swagger-ui.png)
+
+---
+
 ## Contributing
 
 Contributions are welcome! Please read the contributing guidelines for more information.
