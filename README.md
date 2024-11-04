@@ -65,6 +65,19 @@ Controllers are where you implement the actual logic for your API endpoints. Dev
     
  Replace <generator> with the desired generator (e.g., java, python, etc.) and path/to/your/openapi.yaml with the path to your OpenAPI specification file.
 
+## How To Run The App
+
+- Maven `compile + install` the SpringBoot app
+
+```bash
+mvn clean install  
+```
+- Maven `Run` the SpringBoot app
+
+```bash
+mvn spring-boot:run 
+```
+
     
 ## Contributing
 
