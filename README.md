@@ -34,10 +34,37 @@ To set up this project locally, follow these steps:
     
     To generate code from the OpenAPI specification, use the following command:
 
+    - Generate the Code - **Interfaces + Controllers**
+
     ```bash
-    openapi-generator-cli generate -i path/to/your/openapi.yaml -g <generator> -o output_directory
-    Replace <generator> with the desired generator (e.g., java, python, etc.) and path/to/your/openapi.yaml with the path to your OpenAPI specification file.
+    openapi-generator generate -i ./openapi.yml -g spring -o ./ --additional-properties=apiPackage=com.example.demo.api
     ```
+
+   - Generate the Code - **Interfaces ONLY !**
+
+    ```bash
+    openapi-generator generate -i ./openapi.yml -g spring -o ./ --additional-properties=apiPackage=com.example.demo.api,interfaceOnly=true
+    ```
+    
+    | Parameter                                   | Description                                                                                      |
+    |---------------------------------------------|--------------------------------------------------------------------------------------------------|
+    | `-i ./openapi.yml`                          | Specifies the input OpenAPI specification file (YAML or JSON) that defines the API structure.   |
+    | `-g spring`                                 | Indicates the generator to use. In this case, it specifies the Spring framework as the target.   |
+    | `-o ./`                                     | Sets the output directory where the generated code will be placed. Here, it uses the current directory. |
+    | `--additional-properties`                   | Allows you to pass additional properties to customize the code generation process.               |
+    | `apiPackage=com.example.demo.api`           | Defines the base package name for the generated API interfaces and implementations.              |
+    | `interfaceOnly=true`                        | Instructs the generator to create interfaces only, without implementing controllers. |
+
+
+### Why We Don’t Generate Controllers:
+We want to delegate API endpoint requests to custom controllers, allowing for tailored implementations rather than relying on automatically generated code.
+Any changes you make to generated code will be lost when you regenerate the API code. Creating our own controllers prevents the **Openapi-Generator** from overwriting our controller implementations, we uses the generated interfaces only as a starting point.
+Controllers are where you implement the actual logic for your API endpoints. Developers determine how each API endpoint connects to its controller, this keeps business logic separate from the automatically generated code.
+
+
+    
+ Replace <generator> with the desired generator (e.g., java, python, etc.) and path/to/your/openapi.yaml with the path to your OpenAPI specification file.
+
     
 ## Contributing
 
